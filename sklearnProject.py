@@ -2,8 +2,6 @@
 # coding: utf-8
 
 # In[97]:
-
-
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -38,16 +36,12 @@ df
 
 # In[99]:
 
-
 column_number = 2
 df.drop(df.columns[column_number], axis=1, inplace=True)
 
 df.dropna(subset=['Acreage', 'Finished Area', 'Year Built', 'Bedrooms', 'Full Bath', 'Half Bath'], inplace=True)
 df
-
-
 # In[100]:
-
 
 X = df[['Acreage', 'Finished Area', 'Year Built', 'Bedrooms', 'Full Bath', 'Half Bath']]
 y = df['Sale Price']
@@ -64,9 +58,7 @@ random_forest_model.fit(X_train, y_train)
 gradient_boost_model = GradientBoostingRegressor(n_estimators=100, random_state=42)
 gradient_boost_model.fit(X_train, y_train)
 
-
 # In[101]:
-
 
 y_pred_lr = linear_reg_model.predict(X_test)
 y_pred_dt = decision_tree_model.predict(X_test)
@@ -99,9 +91,7 @@ metrics_df = pd.DataFrame({
 print("Performance Metrics for Each Model:")
 print(metrics_df)
 
-
 # In[108]:
-
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -125,9 +115,4 @@ plt.xlabel('Model')
 plt.legend()
 plt.show()
 
-
 # In[ ]:
-
-
-
-
